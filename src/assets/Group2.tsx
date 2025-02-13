@@ -1,12 +1,12 @@
-import * as React from "react"
-import Svg, { Path } from "react-native-svg"
-const SvgComponent = (props) => (
+import * as React from "react";
+import Svg, { Path, SvgProps } from "react-native-svg";
+
+const SvgComponent: React.FC<SvgProps> = (props) => (
     <Svg
-        xmlns="http://www.w3.org/2000/svg"
         width={265}
         height={56}
         fill="none"
-        {...props}
+        {...props} // Allows external props like color, size, and style
     >
         <Path
             fill="#000505"

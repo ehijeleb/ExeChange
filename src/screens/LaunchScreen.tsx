@@ -1,12 +1,14 @@
 import * as React from "react";
 import { Text, StyleSheet, View, Image, Pressable } from "react-native";
-import Cellularconnection from "../assets/cellular-connection"
-import Wifi from "../assets/wifi"
-// import Cap from "../assets/cap.svg"
 import Group2 from "../assets/Group2"
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../App";
+
+type NavigationProp = StackNavigationProp<RootStackParamList, "Launch">;
 
 const LaunchScreen = () => {
-
+    const navigation = useNavigation<NavigationProp>();
     return (
         <View style={styles.launchScreen}>
             <View style={[styles.statusBarIphoneParent, styles.frameFlexBox]}>
@@ -17,7 +19,10 @@ const LaunchScreen = () => {
                 <View style={styles.groupParent}>
                     <Group2 style={styles.frameChild} width={265} height={56} />
                     <View style={styles.buttonMainParent}>
-                        <Pressable style={[styles.buttonMain, styles.buttonFlexBox]} onPress={() => { }}>
+                        <Pressable
+                            style={[styles.buttonMain, styles.buttonFlexBox]}
+                            onPress={() => navigation.navigate("SignUp")}
+                        >
                             <Text style={[styles.signUp, styles.signUpTypo]}>Sign Up</Text>
                         </Pressable>
                         <Pressable style={[styles.buttonSecondary, styles.buttonFlexBox]} onPress={() => { }}>
